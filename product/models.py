@@ -47,8 +47,3 @@ class Category(models.Model):
 
     def __str__(self):
         return self.slug
-
-    def delete(self, using=None, keep_parents=False):
-        import os
-        [os.remove(file) for file in os.listdir('media/categories/') if file.endswith(f'{self.image.name}')]
-        super().delete()
